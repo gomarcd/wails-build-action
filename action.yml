@@ -188,7 +188,7 @@ runs:
       shell: bash
     - name: Install macOS Wails deps
       if: runner.os == 'macOS'
-      run: brew install mitchellh/gon/gon
+      run: brew install Bearer/tap/gon
       shell: bash
     # Building step
     - name: Build App
