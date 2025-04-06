@@ -255,6 +255,14 @@ runs:
       working-directory: ${{ inputs.app-working-directory }}
       run: |
         productbuild --component ${{ inputs.app-working-directory }}/build/bin/${{inputs.build-name}}.app /Applications ${{ inputs.app-working-directory }}/build/bin/${{inputs.build-name}}.pkg
+    # Temporary debug
+    - name: Debug gon-notarize.json
+      if: runner.os == 'macOS' && inputs.sign != 'false' && startsWith(github.ref, 'refs/tags/')
+      shell: bash
+      run: |
+        echo "----- gon-notarize.json content -----"
+        cat build/darwin/gon-notarize.json
+
     - name: Notarising Installer and zip
       if: runner.os == 'macOS' && inputs.sign != 'false' && startsWith(github.ref, 'refs/tags/')
       shell: bash
