@@ -71,7 +71,7 @@ inputs:
     description: "Deno version to use"
     required: false
     default: "v1.20.x"
-   sign-macos-team-id:
+  sign-macos-team-id:
     description: "Apple Developer Team ID"
     required: false
     default: ''
